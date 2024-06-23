@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <title>ʕ⁠っ⁠•⁠ᴥ⁠•⁠ʔ⁠っ*⁠.˚⁠˳⁠°♡</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Añadir Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">🏡Inicio</a>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('post') }}">Nuevo Post</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">🔐Login (sólo yo)</a>
+        {% endif %}
+    </nav>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
+
+

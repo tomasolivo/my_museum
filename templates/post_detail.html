@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ post[1] }}</h1>
+    <p>{{ Markup(post[2]) }}</p>
+    {% if post[3] %}
+        <audio controls>
+            <source src="{{ post[3] }}" type="audio/mpeg">
+        </audio>
+    {% endif %}
+    <small>Publicado en: {{ post[4] }}</small>
+    <br>
+    {% if current_user.is_authenticated %}
+        <a href="{{ url_for('edit_post', post_id=post[0]) }}">Editar</a>
+        <form method="post" action="{{ url_for('delete_post', post_id=post[0]) }}" style="display:inline;">
+            <button type="submit">Eliminar</button>
+        </form>
+    {% endif %}
+    <br>
+    <a href="{{ url_for('index') }}">Volver a la lista</a>
+{% endblock %}
+
+
+
+

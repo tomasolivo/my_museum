@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <title>Editar Post</title>
+</head>
+<body>
+    {% extends "base.html" %}
+
+{% block content %}
+    <h1>Editar Post</h1>
+    <form method="post">
+        <label for="title">Título:</label>
+        <input type="text" id="title" name="title" value="{{ post[1] }}">
+        <label for="content">Contenido:</label>
+        <textarea id="content" name="content">{{ post[2] }}</textarea>
+        <label for="audio">Archivo de Audio (URL):</label>
+        <input type="text" id="audio" name="audio" value="{{ post[3] }}">
+        <label for="timestamp">Fecha y Hora:</label>
+        <input type="text" id="timestamp" name="timestamp" value="{{ post[4] }}">
+        <button type="submit">Guardar Cambios</button>
+    </form>
+{% endblock %}
+
+</body>
+</html>

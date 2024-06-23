@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <title>Jardín Virtual</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+{% block content %}
+    <h1>Jardín Virtual ʕ⁠っ⁠•⁠ᴥ⁠•⁠ʔ⁠っ*⁠.˚⁠˳⁠°♡</h1>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h2><a href="{{ url_for('post_detail', post_id=post[0]) }}">{{ post[1] }}</a></h2>
+                <div>
+                    {% set img_start = post[2].find('<img') %}
+                    {% if img_start != -1 %}
+                        {% set img_end = post[2].find('>', img_start) + 1 %}
+                        {% set img_tag = post[2][img_start:img_end] %}
+                        {{ Markup(img_tag) }}
+                    {% endif %}
+                </div>
+                <p>{{ Markup(post[2][:100]) }}...</p>
+                <small>Publicado en: {{ post[4] }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+</body>
+</html>

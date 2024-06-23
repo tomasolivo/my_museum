@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <title>Nuevo Post</title>
+</head>
+<body>
+    {% extends "base.html" %}
+
+{% block content %}
+    <h1>Nuevo Post</h1>
+    <form method="post">
+        <label for="title">Título:</label>
+        <input type="text" id="title" name="title">
+        <label for="content">Contenido:</label>
+        <textarea id="content" name="content"></textarea>
+        <label for="audio">Archivo de Audio (URL):</label>
+        <input type="text" id="audio" name="audio">
+        <label for="timestamp">Fecha y Hora (opcional):</label>
+        <input type="text" id="timestamp" name="timestamp" placeholder="YYYY-MM-DD HH:MM:SS">
+        <button type="submit">Publicar</button>
+    </form>
+{% endblock %}
+
+</body>
+</html>

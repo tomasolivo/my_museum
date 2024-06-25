@@ -9,18 +9,19 @@
 </head>
 <body>
     <nav>
-        <a href="{{ url_for('index') }}">🏡Inicio</a>
+        <a href="{{ url_for('index') }}">Inicio</a>
         {% if current_user.is_authenticated %}
             <a href="{{ url_for('post') }}">Nuevo Post</a>
             <a href="{{ url_for('logout') }}">Logout</a>
         {% else %}
-            <a href="{{ url_for('login') }}">🔐Login (sólo yo)</a>
+            <a href="{{ url_for('login') }}">Login</a>
         {% endif %}
     </nav>
     <div class="content">
         {% block content %}{% endblock %}
     </div>
+    <footer>
+        <p><i>¿Quién, al andar por el crepúsculo o al trazar una fecha de su pasado, no sintió alguna vez que se había perdido una cosa infinita?</i> — Jorge Luis Borges</p>
+    </footer>
 </body>
 </html>
-
-
